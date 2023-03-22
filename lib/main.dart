@@ -26,6 +26,11 @@ class _DicePageState extends State<DicePage> {
   int leftDiceNumber = 5;
   int rightDiceNumber = 3;
 
+  void generateRandomNumbers() {
+    rightDiceNumber = Random().nextInt(5) + 1;
+    leftDiceNumber = Random().nextInt(5) + 1;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -38,7 +43,7 @@ class _DicePageState extends State<DicePage> {
             child: TextButton(
               onPressed: () {
                 setState(() {
-                  leftDiceNumber = Random().nextInt(5) + 1;
+                  generateRandomNumbers();
                   print('Left Button pressed: $leftDiceNumber');
                 });
               },
@@ -52,7 +57,7 @@ class _DicePageState extends State<DicePage> {
             child: TextButton(
               onPressed: () {
                 setState(() {
-                  rightDiceNumber = Random().nextInt(5) + 1;
+                  generateRandomNumbers();
                   print('Right Button pressed: $rightDiceNumber');
                 });
               },
